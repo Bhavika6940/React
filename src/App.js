@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
-function App() {
+
+const App = ({ org, year, title, subtitle }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <Header title={title} subtitle={subtitle} />
+      <div className="container" style={{ minHeight: "500px" }}>
+        <div className="row">
+          <div className="col-md-4 col-sm-6 col-xs-12">
+            <TodoList />
+            
+          </div>
+          <div className="col-md-4 col-sm-6 col-xs-12">
+            <TodoForm />
+            
+          </div>
+        </div>
 
+      </div>
+      <Footer year={year || 2024} org={org || "Bhavika Kriplani Inc. Jaipur"} />
+
+    </>
+
+  );
+};
 export default App;
+
